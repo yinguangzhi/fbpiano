@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocos Creator | Fire Piano</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+    content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1" />
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit" />
+  <meta name="force-rendering" content="webkit" />
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="360-fullscreen" content="true" />
+
+  <!-- force screen orientation on some browser -->
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="x5-orientation" content="portrait">
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.css" />
+
+</head>
+
+<body>
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <script>
+    window.WVersion = "1.0.0";
+    window.FbPercent = 0;
+
+    window.isFacebookSDKReady = true;
+    window.readyToGame = false;
+    window.goneGame = false;
+
+    function setFbProgress(percent) {
+
+      if (window.goneGame) return;
+
+      window.FbPercent += percent;
+
+      if (window.FbPercent >= 96) {
+        if (!window.readyToGame) window.FbPercent = 96;
+      }
+
+      if (window.FbPercent >= 100) 
+      {
+        window.FbPercent = 100;
+        if(window.readyToGame)
+        {
+            if(window.realGoGameInIndex) window.realGoGameInIndex();
+        }
+      }
+
+      FBInstant.setLoadingProgress(window.FbPercent);
+
+      let _million = window.readyToGame ? 30 : 120;
+      let _per = window.readyToGame ? 4 : 1;
+
+      setTimeout(function () {
+        setFbProgress(_per)
+      }, _million);
+    }
+
+    function onFBEngineFailedToLoad() {
+      console.log("Load Meta SDK Fail");
+
+      loadFBEngine();
+    }
+    
+    function onFBEngineLoaded() {
+      FBInstant.initializeAsync()
+        .then(function () {
+
+          setFbProgress(1);
+          window.isFacebookSDKReady = true;
+
+          if (window.enterBoot) window.enterBoot();
+
+        })
+        .catch(function () {
+
+          FBInstant.initializeAsync()
+            .then(function () {
+
+              setFbProgress(1);
+              window.isFacebookSDKReady = true;
+              if (window.enterBoot) window.enterBoot();
+            })
+            .catch(function () { });
+
+        });
+    }
+
+    function loadFBEngine() {
+      var element = document.getElementById('fbInstant');
+      if (element && element.parentElement == document) {
+        document.removeChild(element);
+      }
+      var fbinstant = document.createElement('script');
+      fbinstant.id = 'fbInstant';
+      fbinstant.src = 'https://connect.facebook.net/en_US/fbinstant.7.1.js';
+      fbinstant.onload = onFBEngineLoaded;
+      fbinstant.onerror = onFBEngineFailedToLoad;
+      document.body.appendChild(fbinstant);
+    }
+
+    loadFBEngine();
+
+  </script>
+
+  <script src="src/settings.js" charset="utf-8"></script>
+  <!-- <script src="vconsole.min.js"></script> -->
+  <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>

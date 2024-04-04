@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ballmask",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "paths": {
+      "balllanglight": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -112.8
+            },
+            {
+              "frame": 1,
+              "value": 63.3
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

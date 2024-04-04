@@ -1,0 +1,36 @@
+{
+  "ver": "1.2.6",
+  "uuid": "e79a011e-51d3-4fe4-8110-8f8e99d7dede",
+  "importer": "sprite-atlas",
+  "rawTextureUuid": "17c39665-2663-4e4e-9e1b-18db0c983474",
+  "size": {
+    "width": 1024,
+    "height": 1024
+  },
+  "type": "Texture Packer",
+  "subMetas": {
+    "anniu2.png": {
+      "ver": "1.0.6",
+      "uuid": "efc29cea-edbb-4970-b4dd-b95c83c274c6",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "17c39665-2663-4e4e-9e1b-18db0c983474",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 631,
+      "height": 732,
+      "rawWidth": 631,
+      "rawHeight": 732,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "spriteType": "normal",
+      "subMetas": {}
+    }
+  }
+}

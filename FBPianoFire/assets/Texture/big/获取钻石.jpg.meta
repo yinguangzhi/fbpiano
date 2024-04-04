@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "3ce17446-5c08-4f93-a4cf-35671f2915e7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 720,
+  "height": 1280,
+  "platformSettings": {},
+  "subMetas": {
+    "获取钻石": {
+      "ver": "1.0.6",
+      "uuid": "e1388a37-349a-4ded-8c95-ed8e73dc1d9a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "3ce17446-5c08-4f93-a4cf-35671f2915e7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 720,
+      "height": 1280,
+      "rawWidth": 720,
+      "rawHeight": 1280,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
